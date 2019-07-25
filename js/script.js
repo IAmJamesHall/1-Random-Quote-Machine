@@ -1,19 +1,9 @@
 /******************************************
 Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
+JavaScript by James Hall 
 ******************************************/
 
-// Study guide for this project - https://drive.google.com/file/d/1s5grutGuQFwJcQP8bFwEI69Q8FCkGdDk/view?usp=sharing
-
-
-/*** 
-  Create the array of quote objects and name it `quotes`.
-  Add at least five quote objects to the `quotes` array.
-  Give each quote object a `quote` and `source` property.
-  Add the `citation` property to at least one object in the array.
-  Add the `year` property to at least one object in the array.
-  Use console.log() to log your array of quotes to the console.
-***/
 //Array of quote objects
 var quotes = [
     {
@@ -49,15 +39,27 @@ var quotes = [
         citation: "Andrew Peterson"
     }
 ];
-console.log(quotes);
 
+var colors = [
+    "011627",
+    "53b55d",
+    "5D1326",
+    "0F4B6F",
+    "4A6670",
+    "2F413B"
+]
+//return a random number from 0 to upper-1
+function getRandomNumber(upper) {
+    return randomNumber = Math.floor(Math.random() * upper);
+}
 
-
+//choose a random quote from an array
 function getRandomQuote(quotesArray) {
-    var randomNumber = Math.floor(Math.random() * quotesArray.length) 
+    var randomNumber = getRandomNumber(quotesArray.length); 
     return quotesArray[randomNumber];
 }
 
+//put html tags (and a class) around a string of text
 function surroundText(HTMLtag, HTMLclass, textToSurround) {
     var text = "";
     text += "<" + HTMLtag + " class='" + HTMLclass + "'>"
@@ -66,14 +68,21 @@ function surroundText(HTMLtag, HTMLclass, textToSurround) {
     return text;
 }
 
-
+/* This is the main function of the program and is called when the
+   Load Quote button is pushed */
 function printQuote() {
-    var quoteObject = getRandomQuote(quotes);
+    //call setRandomColor() to set the background color
+    setRandomColor();
+
+    //now select a random quote and surround it with <p> tags
     var quoteHTML = '';
+    var quoteObject = getRandomQuote(quotes);
     quoteHTML += surroundText('p', 'quote', quoteObject.quote);
 
 
-    // Attributions
+    /*create the attribution section by first checking if that part
+      of the attribution exists, and then adding it to the
+      attribution variable */
     var attribution = "";
     if (quoteObject.citation !== undefined) {
         attribution += surroundText('span', 'citation', quoteObject.citation);
@@ -82,33 +91,28 @@ function printQuote() {
         attribution += surroundText('span', 'year', quoteObject.year);
     }
     quoteHTML += surroundText('p', 'source', quoteObject.source + attribution);
+
+    //set the innerHTML of the page with the quote and its attribution
     document.getElementById('quote-box').innerHTML = quoteHTML;
     
 }
-/***
-  Create the `printQuote` function to: 
-   - Call the `getRandomQuote` function and assign it to a variable.
-   - Create a variable for the HTML string and set it equal to an empty string.
-   - Use the HTML template in the instructions or the markup in the index.html file, AND 
-     the random quote vairable to build your HTML string.
-   - Add the quote and source section to the HTML string.
-   - Use an if statement to check for the citation property before adding it to the HTML string.
-   - Use an if statement to check for the year property before adding it to the HTML string.
-   - Don't forget to close that final `p` tag.
-   - Set the `innerHTML` of the `quote-box` div to the HTML string. 
-***/
 
 
+function setRandomColor() {
+    //get random color from array and turn it into a hex value
+    var randomNumber = getRandomNumber(colors.length);
+    var randomColor = "#" + colors[randomNumber];
+
+    //set selected random color as body backgroundColor
+    document.body.style.backgroundColor = randomColor;
+
+    //set selected random color as button backgroundColor
+    var loadQuoteButton = document.getElementById('loadQuote');
+    loadQuoteButton.style.backgroundColor = randomColor;
+}
 
 
-/***
-  When the "Show another quote" button is clicked, the event listener 
-  below will be triggered, and it will call, or "invoke", the `printQuote` 
-  function. So do not make any changes to the line of code below this 
-  comment.
-***/
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
 
-// Remember to delete the comments that came with this file, and replace them with your own code comments.
