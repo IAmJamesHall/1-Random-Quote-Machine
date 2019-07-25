@@ -8,35 +8,62 @@ JavaScript by James Hall
 var quotes = [
     {
         quote: "Java is to JavaScript what car is to Carpet.",
-        source: "Chris Heilmann"
+        source: "Chris Heilmann",
+        tag: "programming"
     },
     {
         quote: "Code is like humor. When you have to explain it, it’s bad.",
-        source: "Cory House"
+        source: "Cory House",
+        tag: "programming"
     },
     {
         quote: "Measuring programming progree by lines of code is like measuring aircraft building progree by weight.",
-        source: "Bill Gates"
+        source: "Bill Gates",
+        tag: "programming"
     },
     {
         quote: "He is no fool who gives what he cannot keep to gain that which he cannot lose.",
         source: "Jim Elliot",
-        year: "1949"
+        year: "1949",
+        tag: "inspirational"
     },
     {
         quote: "In the words of Badley Bunson, \"How?\"",
         source: "Oscar N Reeteep",
-        citation: "The Wingfeather Saga"
+        citation: "The Wingfeather Saga",
+        tag: "literature"
     },
     {
         quote: "You cannot pass",
         source: "Gandalf",
-        citation: "The Lord of the Rings"
+        citation: "The Lord of the Rings",
+        tag: "literature"
     },
     {
         quote: "There's no need to panic!",
         source: "Goverly Swimp",
-        citation: "Andrew Peterson"
+        citation: "Andrew Peterson",
+        tag: "literature"
+    },
+    {
+        quote: "The Pessimist sees difficulty in every opportunity. The Optimist sees opportunity in every difficulty.",
+        source: "Winston Churchill",
+        tag: "inspirational"
+    },
+    {
+        quote: "You learn more from failure than from success. Don’t let it stop you. failure builds character.",
+        source: "Unknown",
+        tag: "inspirational"
+    },
+    {
+        quote: "If you are working on something that you really care about, you don’t have to be pushed. The Vision pulls you.",
+        source: "Steve Jobs",
+        tag: "inspirational"
+    },
+    {
+        quote: "Whether you think you can or think you can’t, you’re right.",
+        source: "Henry Ford",
+        tag: "inspirational"
     }
 ];
 
