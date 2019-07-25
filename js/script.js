@@ -14,19 +14,77 @@ project 1 - A Random Quote Generator
   Add the `year` property to at least one object in the array.
   Use console.log() to log your array of quotes to the console.
 ***/
-
+//Array of quote objects
+var quotes = [
+    {
+        quote: "Java is to JavaScript what car is to Carpet.",
+        source: "Chris Heilmann"
+    },
+    {
+        quote: "Code is like humor. When you have to explain it, it’s bad.",
+        source: "Cory House"
+    },
+    {
+        quote: "Measuring programming progree by lines of code is like measuring aircraft building progree by weight.",
+        source: "Bill Gates"
+    },
+    {
+        quote: "He is no fool who gives what he cannot keep to gain that which he cannot lose.",
+        source: "Jim Elliot"
+    },
+    {
+        quote: "In the words of Badley Bunson, \"How?\"",
+        source: "Oscar N Reeteep",
+        citation: "The Wingfeather Saga"
+    },
+    {
+        quote: "You cannot pass",
+        source: "Gandalf",
+        citation: "The Lord of the Rings"
+    },
+    {
+        quote: "There's no need to panic!",
+        source: "Goverly Swimp",
+        citation: "Andrew Peterson"
+    }
+];
 
 
 
 /***
   Create the `getRandomQuote` function to:
    - Create a variable to store a random number 
-   - Cse the random number to `return` a random quote object from the `quotes` array.
+   - Use the random number to `return` a random quote object from the `quotes` array.
 ***/
 
+function getRandomQuote(quotesArray) {
+    var randomNumber = Math.floor(Math.random() * quotesArray.length) 
+    return quotesArray[randomNumber];
+}
+
+function surroundText(HTMLtag, HTMLclass, textToSurround) {
+    var text = "";
+    text += "<" + HTMLtag + " class='" + HTMLclass + "'>"
+    text += textToSurround;
+    text += "</" + HTMLtag + ">"
+    return text;
+}
 
 
-
+function printQuote(quotes) {
+    var quoteObject = getRandomQuote(quotes);
+    var quoteHTML = '';
+    quoteHTML += surroundText('p', 'quote', quoteObject.quote);
+    quoteHTML += surroundText('p', 'source', quoteObject.source);
+    if (quoteObject.citation !== undefined) {
+        quoteHTML += surroundText('p', 'citation', quoteObject.citation);
+    }
+    if (quoteObject.year !== undefined) {
+        quoteHTML += surroundText('span', 'year', quoteObject.year);
+    }
+    document.getElementById('quote-box').innerHTML = quoteHTML;
+    
+}
 /***
   Create the `printQuote` function to: 
    - Call the `getRandomQuote` function and assign it to a variable.
