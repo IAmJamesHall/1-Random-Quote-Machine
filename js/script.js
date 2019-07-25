@@ -30,7 +30,8 @@ var quotes = [
     },
     {
         quote: "He is no fool who gives what he cannot keep to gain that which he cannot lose.",
-        source: "Jim Elliot"
+        source: "Jim Elliot",
+        year: "1949"
     },
     {
         quote: "In the words of Badley Bunson, \"How?\"",
@@ -48,14 +49,9 @@ var quotes = [
         citation: "Andrew Peterson"
     }
 ];
+console.log(quotes);
 
 
-
-/***
-  Create the `getRandomQuote` function to:
-   - Create a variable to store a random number 
-   - Use the random number to `return` a random quote object from the `quotes` array.
-***/
 
 function getRandomQuote(quotesArray) {
     var randomNumber = Math.floor(Math.random() * quotesArray.length) 
@@ -71,17 +67,21 @@ function surroundText(HTMLtag, HTMLclass, textToSurround) {
 }
 
 
-function printQuote(quotes) {
+function printQuote() {
     var quoteObject = getRandomQuote(quotes);
     var quoteHTML = '';
     quoteHTML += surroundText('p', 'quote', quoteObject.quote);
-    quoteHTML += surroundText('p', 'source', quoteObject.source);
+
+
+    // Attributions
+    var attribution = "";
     if (quoteObject.citation !== undefined) {
-        quoteHTML += surroundText('p', 'citation', quoteObject.citation);
+        attribution += surroundText('span', 'citation', quoteObject.citation);
     }
     if (quoteObject.year !== undefined) {
-        quoteHTML += surroundText('span', 'year', quoteObject.year);
+        attribution += surroundText('span', 'year', quoteObject.year);
     }
+    quoteHTML += surroundText('p', 'source', quoteObject.source + attribution);
     document.getElementById('quote-box').innerHTML = quoteHTML;
     
 }
