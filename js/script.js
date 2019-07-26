@@ -155,7 +155,9 @@ function loadButtonPressed() {
     reloadQuote = setInterval(printQuote, 20000);
 }
 
-//this code snippet written by Treehouse staff as part of the project boilerplate
+/*This code snippet written by Treehouse staff as part of the project boilerplate.
+  I changed it to call the function 'loadButtonPressed()' so that
+  I could properly handle clearInterval(); */
 document.getElementById('loadQuote').addEventListener("click", loadButtonPressed, false);
 
 
