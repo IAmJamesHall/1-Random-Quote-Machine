@@ -17,7 +17,7 @@ var quotes = [
         tag: "programming"
     },
     {
-        quote: "Measuring programming progree by lines of code is like measuring aircraft building progree by weight.",
+        quote: "Measuring programming progree by lines of code is like measuring aircraft building progress by weight.",
         source: "Bill Gates",
         tag: "programming"
     },
@@ -51,7 +51,7 @@ var quotes = [
         tag: "inspirational"
     },
     {
-        quote: "You learn more from failure than from success. Don’t let it stop you. failure builds character.",
+        quote: "You learn more from failure than from success. Don’t let it stop you. Failure builds character.",
         source: "Unknown",
         tag: "inspirational"
     },
