@@ -67,6 +67,7 @@ var quotes = [
     }
 ];
 
+//array of background colors
 var colors = [
     "011627",
     "53b55d",
@@ -75,16 +76,20 @@ var colors = [
     "4A6670",
     "2F413B"
 ]
+
+
 //return a random number from 0 to upper-1
 function getRandomNumber(upper) {
     return randomNumber = Math.floor(Math.random() * upper);
 }
+
 
 //choose a random quote from an array
 function getRandomQuote(quotesArray) {
     var randomNumber = getRandomNumber(quotesArray.length); 
     return quotesArray[randomNumber];
 }
+
 
 //put html tags (and a class) around a string of text
 function surroundText(HTMLtag, HTMLclass, textToSurround) {
@@ -95,9 +100,9 @@ function surroundText(HTMLtag, HTMLclass, textToSurround) {
     return text;
 }
 
-/* This is the main function of the program and is called when the
-   Load Quote button is pushed */
+/* This is the main function of the program and is called when the page is loaded and from the loadButtonPressed() function */
 function printQuote() {
+
     //call setRandomColor() to set the background color
     setRandomColor();
 
@@ -128,6 +133,7 @@ function printQuote() {
 }
 
 
+//returns random color from color array
 function setRandomColor() {
     //get random color from array and turn it into a hex value
     var randomNumber = getRandomNumber(colors.length);
@@ -141,8 +147,17 @@ function setRandomColor() {
     loadQuoteButton.style.backgroundColor = randomColor;
 }
 
+/*clears automatic reloading of the quote (interval),
+  calls printQuote(), and reinstates the interval */
+function loadButtonPressed() {
+    clearInterval(reloadQuote);
+    printQuote();
+    reloadQuote = setInterval(printQuote, 20000);
+}
+
+//this code snippet written by Treehouse staff as part of the project boilerplate
+document.getElementById('loadQuote').addEventListener("click", loadButtonPressed, false);
 
 
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-
-
+//set an interval of 20 seconds for the quote to reload
+var reloadQuote = setInterval(printQuote, 20000);
