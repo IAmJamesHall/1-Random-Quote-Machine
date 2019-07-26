@@ -119,6 +119,9 @@ function printQuote() {
     }
     quoteHTML += surroundText('p', 'source', quoteObject.source + attribution);
 
+    //add tag
+    quoteHTML += surroundText('p', 'source, small', quoteObject.tag);
+    
     //set the innerHTML of the page with the quote and its attribution
     document.getElementById('quote-box').innerHTML = quoteHTML;
     

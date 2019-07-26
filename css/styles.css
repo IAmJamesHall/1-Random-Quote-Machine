@@ -51,6 +51,7 @@ body {
   line-height: 1.1;
   text-align: right;
   margin-right: 4em;
+  margin-bottom: 8px;
 }
 
 .source:before {
@@ -103,4 +104,16 @@ body {
   .source {
     font-size: 1.25rem;
   }
+}
+
+.small {
+    font-size: 0.75rem;
+    padding-top: 0;
+    margin-top: 5px;
+    text-align: right;
+    margin-right: 7em;
+}
+
+.small:before{
+    content: "";
 }
