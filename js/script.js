@@ -17,7 +17,7 @@ var quotes = [
         tag: "programming"
     },
     {
-        quote: "Measuring programming progree by lines of code is like measuring aircraft building progress by weight.",
+        quote: "Measuring programming progress by lines of code is like measuring aircraft building progress by weight.",
         source: "Bill Gates",
         tag: "programming"
     },
