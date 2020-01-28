@@ -64,6 +64,12 @@ var quotes = [
         quote: "Whether you think you can or think you can’t, you’re right.",
         source: "Henry Ford",
         tag: "inspirational"
+    },
+    {
+        quote: "If you've lost all, you have all to gain.",
+        source: "Aaron Travis",
+        tag: "inspirational",
+        year: "2020"
     }
 ];
 
